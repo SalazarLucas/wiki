@@ -1,0 +1,24 @@
+.container {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+}
+
+.main {
+    padding: 15px;
+    width: 100vw;
+}
+
+.sidebar {
+    padding: 15px;
+    background-color: #f0f0f0;
+}
+
+code {
+    white-space: pre;
+}
+
+textarea {
+    display: block;
+}

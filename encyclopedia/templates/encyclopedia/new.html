@@ -1,0 +1,30 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    New Wiki
+{% endblock %}
+
+{% block body %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Error{% else %}{{ message.tags|title }}{% endif %}!</strong> {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    <h1>Create New Wiki page:</h1>
+
+    <p>This page allows you to create a new Wiki page with markdown.</p>
+
+    <form action="" method="POST">
+        <div class="mb-3">
+            <input class="form-control" type="text" placeholder="Page Title" name="title">
+        </div>
+        <div class="mb-3">
+            <textarea name="entry" class="form-control" cols="30" rows="10" placeholder="Type a new Wiki entry"></textarea>
+        </div>        
+        <input class="btn btn-primary" type="submit" value="Submit">
+        {% csrf_token %}
+    </form>
+{% endblock %}
